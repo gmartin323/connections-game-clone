@@ -8,7 +8,7 @@ const GamePage = lazy(()=> import ('./pages/GamePage'))
 import Layout from './components/Layout'
 import LoadingSpinner from './components/LoadingSpinner'
 
-export default function App() {
+export default function Start() {
   return (
     <HashRouter>
       <Suspense fallback={<div className='page-container'><LoadingSpinner /></div>}>

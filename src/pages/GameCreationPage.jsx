@@ -3,25 +3,25 @@ import SetInputCard from "../components/SetInputCard"
 
 export default function GameCreationPage() {
 
-  const [set1, setSet1] = React.useState([])
-  const [set2, setSet2] = React.useState([])
-  const [set3, setSet3] = React.useState([])
-  const [set4, setSet4] = React.useState([])
+  const [AnswerSet1, setAnswerSet1] = React.useState({})
+  const [AnswerSet2, setAnswerSet2] = React.useState({})
+  const [AnswerSet3, setAnswerSet3] = React.useState({})
+  const [AnswerSet4, setAnswerSet4] = React.useState({})
 
-  console.log("set1", set1)
-  console.log("set2", set1)
-  console.log("set3", set1)
-  console.log("set4", set1)
+  console.log("set1", AnswerSet1)
+  console.log("set2", AnswerSet2)
+  console.log("set3", AnswerSet3)
+  console.log("set4", AnswerSet4)
 
 
   return (
     <div>
       <form className="input-section">
         <div className="sets-input-section">
-          <SetInputCard set={set1} setSet={setSet1}/>
-          <SetInputCard set={set2} setSet={setSet2}/>
-          <SetInputCard set={set3} setSet={setSet3}/>
-          <SetInputCard set={set4} setSet={setSet4}/>
+          <SetInputCard set={AnswerSet1} setSet={setAnswerSet1}/>
+          <SetInputCard set={AnswerSet2} setSet={setAnswerSet2}/>
+          <SetInputCard set={AnswerSet3} setSet={setAnswerSet3}/>
+          <SetInputCard set={AnswerSet4} setSet={setAnswerSet4}/>
         </div>
         <div className="info-input-section">
           {/* info: title, author, difficulty, tags */}
