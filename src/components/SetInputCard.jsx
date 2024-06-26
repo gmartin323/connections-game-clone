@@ -2,7 +2,7 @@ import React from "react"
 
 export default function SetInputCard( {set, setSet} ) {
 
-  function handleSetChange(event) {
+  function handleSetChange(event){
     setSet((prevSet) => {
       return ({...prevSet, [event.target.dataset.input]: event.target.value})
     })
