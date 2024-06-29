@@ -6,12 +6,16 @@ import { gamesCollectionRef } from "../../firebase";
 
 export default function GameCreationPage() {
 
+  const [sets, setSets] = React.useState({
+    
+  })
+
   const [AnswerSet1, setAnswerSet1] = React.useState({})
   const [AnswerSet2, setAnswerSet2] = React.useState({})
   const [AnswerSet3, setAnswerSet3] = React.useState({})
   const [AnswerSet4, setAnswerSet4] = React.useState({})
 
-  // console.log("set1", AnswerSet1)
+  console.log("set1", AnswerSet1)
   // console.log("set2", AnswerSet2)
   // console.log("set3", AnswerSet3)
   // console.log("set4", AnswerSet4)
@@ -23,21 +27,56 @@ export default function GameCreationPage() {
       Author: '',
       Difficulty: 0,
       Tags: [''],
-      createdAt: Date.now()
+      createdAt: Date.now(),
+      sets: {
+        'set1': {
+          title: 'titleString',
+          answer1: '1',
+          answer2: '1',
+          answer3: '1',
+          answer4: '1',
+        },
+        'set2': {
+          title: 'titleString',
+          answer1: '1',
+          answer2: '1',
+          answer3: '1',
+          answer4: '1',
+        },
+        'set3': {
+          title: 'titleString',
+          answer1: '1',
+          answer2: '1',
+          answer3: '1',
+          answer4: '1',
+        },
+        'set4': {
+          title: 'titleString',
+          answer1: '1',
+          answer2: '1',
+          answer3: '1',
+          answer4: '1',
+        },
+      }
     }
   )
   
-  console.log(newGame)
+  // console.log(newGame)
+
+  React.useEffect(()=>{
+
+  }, [sets])
 
   function handleChange(event){
     setNewGame({...newGame, [event.target.name]: event.target.value})
   }
 
-  // not getting set title when setting newGame object
-  
   async function createGame(event){
     event.preventDefault()
-    const addedGame = await addDoc(gamesCollectionRef, newGame)
+    // modify user inputted tags to array with no whitespace before or after strings
+    const tagsArray = newGame.Tags.split(',').map((tag)=>{return tag.trim()})
+    const newGameData = {...newGame, Tags: tagsArray}
+    const addedGame = await addDoc(gamesCollectionRef, newGameData)
     console.log("id", `${addedGame.id} submitted succesfully`)
     setNewGame({
       Title: '',
@@ -48,48 +87,15 @@ export default function GameCreationPage() {
     })
   }
 
-  /* /* async function createGame(){
-    setNewGame({
-      sets: 
-        [AnswerSet1.title]: [
-          AnswerSet1.answer1, 
-          AnswerSet1.answer2, 
-          AnswerSet1.answer3, 
-          AnswerSet1.answer4
-          ]
-        ,
-        AnswerSet2.title = [
-          AnswerSet2.answer1, 
-          AnswerSet2.answer2, 
-          AnswerSet2.answer3, 
-          AnswerSet2.answer4
-        ],
-        AnswerSet3.title = [
-          AnswerSet3.answer1, 
-          AnswerSet3.answer2, 
-          AnswerSet3.answer3, 
-          AnswerSet3.answer4
-        ],
-        AnswerSet4.title = [
-          AnswerSet4.answer1, 
-          AnswerSet4.answer2, 
-          AnswerSet4.answer3, 
-          AnswerSet4.answer4
-        ]
-      ]
-    })
-    console.log(newGame)
-  } */
-
   return (
     <div className="input-section">
       <form method="POST" onSubmit={createGame}>
-        {/* <div className="sets-input-section">
+        <div className="sets-input-section">
           <SetInputCard set={AnswerSet1} setSet={setAnswerSet1}/>
-          <SetInputCard set={AnswerSet2} setSet={setAnswerSet2}/>
-          <SetInputCard set={AnswerSet3} setSet={setAnswerSet3}/>
-          <SetInputCard set={AnswerSet4} setSet={setAnswerSet4}/>
-        </div> */}
+          {/* <SetInputCard set={AnswerSet2} setSet={setAnswerSet2}/> */}
+          {/* <SetInputCard set={AnswerSet3} setSet={setAnswerSet3}/> */}
+          {/* <SetInputCard set={AnswerSet4} setSet={setAnswerSet4}/> */}
+        </div>
         <div className="info-input-section">
           {/* info: title, author, difficulty, tags */}
           <input 
@@ -115,7 +121,7 @@ export default function GameCreationPage() {
             min="0" 
             max="5" 
             name="Difficulty"
-            defaultValue={0}
+            value={newGame.Difficulty}
             onChange={handleChange}
             required
           />
@@ -126,11 +132,9 @@ export default function GameCreationPage() {
             value={newGame.Tags}
             onChange={handleChange} 
             autoComplete="off" 
-            required
           />
         </div>
         <section className="confirm-section">
-
           <button type="submit">Submit</button>
         </section>
       </form>

@@ -16,35 +16,44 @@ export default function SetInputCard( {set, setSet} ) {
       <div className="set-input-title">
         <h2>Title:</h2>
         <input
-          type="text" 
+          type="text"
+          placeholder="set title" 
           onChange={handleSetChange}
           data-input="title"
         />
       </div>
       <div className="set-input-sets">
         <input 
-          className="set-input-sets-input" 
           type="text" 
+          className="set-input-sets-input" 
           onChange={handleSetChange}
           data-input="answer1"
+          autoComplete="off"
+          required
         />
         <input 
-          className="set-input-sets-input" 
           type="text" 
+          className="set-input-sets-input" 
           onChange={handleSetChange}
           data-input="answer2"
+          autoComplete="off"
+          required
         />
         <input 
-          className="set-input-sets-input" 
           type="text" 
+          className="set-input-sets-input" 
           onChange={handleSetChange}
           data-input="answer3"
+          autoComplete="off"
+          required
         />
         <input 
-          className="set-input-sets-input" 
           type="text" 
+          className="set-input-sets-input" 
           onChange={handleSetChange}
           data-input="answer4"
+          autoComplete="off"
+          required
         />
       </div>
     </div>
