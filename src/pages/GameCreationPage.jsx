@@ -7,19 +7,27 @@ import { gamesCollectionRef } from "../../firebase";
 export default function GameCreationPage() {
 
   const [sets, setSets] = React.useState({
-    
+      set1Title: '',
+      set1Answer1: '',
+      set1Answer2: '',
+      set1Answer3: '',
+      set1Answer4: '',
+      set2Title: '',
+      set2Answer1: '',
+      set2Answer2: '',
+      set2Answer3: '',
+      set2Answer4: '',
+      set3Title: '',
+      set3Answer1: '',
+      set3Answer2: '',
+      set3Answer3: '',
+      set3Answer4: '',
+      set4Title: '',
+      set4Answer1: '',
+      set4Answer2: '',
+      set4Answer3: '',
+      set4Answer4: ''
   })
-
-  const [AnswerSet1, setAnswerSet1] = React.useState({})
-  const [AnswerSet2, setAnswerSet2] = React.useState({})
-  const [AnswerSet3, setAnswerSet3] = React.useState({})
-  const [AnswerSet4, setAnswerSet4] = React.useState({})
-
-  console.log("set1", AnswerSet1)
-  // console.log("set2", AnswerSet2)
-  // console.log("set3", AnswerSet3)
-  // console.log("set4", AnswerSet4)
-  
   
   const [newGame, setNewGame] = React.useState(
     {
@@ -28,43 +36,15 @@ export default function GameCreationPage() {
       Difficulty: 0,
       Tags: [''],
       createdAt: Date.now(),
-      sets: {
-        'set1': {
-          title: 'titleString',
-          answer1: '1',
-          answer2: '1',
-          answer3: '1',
-          answer4: '1',
-        },
-        'set2': {
-          title: 'titleString',
-          answer1: '1',
-          answer2: '1',
-          answer3: '1',
-          answer4: '1',
-        },
-        'set3': {
-          title: 'titleString',
-          answer1: '1',
-          answer2: '1',
-          answer3: '1',
-          answer4: '1',
-        },
-        'set4': {
-          title: 'titleString',
-          answer1: '1',
-          answer2: '1',
-          answer3: '1',
-          answer4: '1',
-        },
-      }
+      sets: {}
     }
   )
   
-  // console.log(newGame)
+  console.log('newGameState', newGame)
 
   React.useEffect(()=>{
-
+    console.log('setNewGameNow')
+    setNewGame({...newGame, sets: sets})
   }, [sets])
 
   function handleChange(event){
@@ -78,12 +58,14 @@ export default function GameCreationPage() {
     const newGameData = {...newGame, Tags: tagsArray}
     const addedGame = await addDoc(gamesCollectionRef, newGameData)
     console.log("id", `${addedGame.id} submitted succesfully`)
+    setSets({})
     setNewGame({
       Title: '',
       Author: '',
       Difficulty: 0,
       Tags: [''],
-      createdAt: Date.now()
+      createdAt: Date.now(),
+      sets: {}
     })
   }
 
@@ -91,10 +73,10 @@ export default function GameCreationPage() {
     <div className="input-section">
       <form method="POST" onSubmit={createGame}>
         <div className="sets-input-section">
-          <SetInputCard set={AnswerSet1} setSet={setAnswerSet1}/>
-          {/* <SetInputCard set={AnswerSet2} setSet={setAnswerSet2}/> */}
-          {/* <SetInputCard set={AnswerSet3} setSet={setAnswerSet3}/> */}
-          {/* <SetInputCard set={AnswerSet4} setSet={setAnswerSet4}/> */}
+          <SetInputCard currentSet={'set1'} setSets={setSets}/>
+          <SetInputCard currentSet={'set2'} setSets={setSets}/>
+          <SetInputCard currentSet={'set3'} setSets={setSets}/>
+          <SetInputCard currentSet={'set4'} setSets={setSets}/>
         </div>
         <div className="info-input-section">
           {/* info: title, author, difficulty, tags */}
