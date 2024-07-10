@@ -40,10 +40,9 @@ export default function GameCreationPage() {
     }
   )
   
-  console.log('newGameState', newGame)
+  // console.log('newGameState', newGame)
 
   React.useEffect(()=>{
-    console.log('setNewGameNow')
     setNewGame({...newGame, sets: sets})
   }, [sets])
 
@@ -54,7 +53,10 @@ export default function GameCreationPage() {
   async function createGame(event){
     event.preventDefault()
     // modify user inputted tags to array with no whitespace before or after strings
-    const tagsArray = newGame.Tags.split(',').map((tag)=>{return tag.trim()})
+    let tagsArray
+    newGame.Tags[0] ?
+        tagsArray = newGame.Tags.split(',').map((tag)=>{return tag.trim()}) : 
+        tagsArray = []
     const newGameData = {...newGame, Tags: tagsArray}
     const addedGame = await addDoc(gamesCollectionRef, newGameData)
     console.log("id", `${addedGame.id} submitted succesfully`)
