@@ -29,8 +29,22 @@ body {
   padding: 2rem;
   margin: 1rem 0;
   outline: 2px solid slateblue;
-  border-radius: 8px;
+  border-radius: 6px;
+}
 
+.games-selection-container {
+  display: flex;
+  align-content: space-between;
+  gap: 1rem;
+}
+
+.game-selection-tile {
+  margin: 1rem 0;
+  padding: 1rem;
+  min-width: 100px;
+  /* aspect-ratio: 2/3; */
+  border-radius: 4px;
+  background-color: blanchedalmond;
 }
 
 .input-section {
