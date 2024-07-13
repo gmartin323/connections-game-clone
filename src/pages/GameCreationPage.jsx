@@ -6,28 +6,30 @@ import { gamesCollectionRef } from "../../firebase";
 
 export default function GameCreationPage() {
 
-  const [sets, setSets] = React.useState({
-      set1Title: '',
-      set1Answer1: '',
-      set1Answer2: '',
-      set1Answer3: '',
-      set1Answer4: '',
-      set2Title: '',
-      set2Answer1: '',
-      set2Answer2: '',
-      set2Answer3: '',
-      set2Answer4: '',
-      set3Title: '',
-      set3Answer1: '',
-      set3Answer2: '',
-      set3Answer3: '',
-      set3Answer4: '',
-      set4Title: '',
-      set4Answer1: '',
-      set4Answer2: '',
-      set4Answer3: '',
-      set4Answer4: ''
-  })
+  const defaultSets = {
+    set1Title: '',
+    set1Answer1: '',
+    set1Answer2: '',
+    set1Answer3: '',
+    set1Answer4: '',
+    set2Title: '',
+    set2Answer1: '',
+    set2Answer2: '',
+    set2Answer3: '',
+    set2Answer4: '',
+    set3Title: '',
+    set3Answer1: '',
+    set3Answer2: '',
+    set3Answer3: '',
+    set3Answer4: '',
+    set4Title: '',
+    set4Answer1: '',
+    set4Answer2: '',
+    set4Answer3: '',
+    set4Answer4: ''
+  }
+
+  const [sets, setSets] = React.useState(defaultSets)
   
   const [newGame, setNewGame] = React.useState(
     {
@@ -36,11 +38,11 @@ export default function GameCreationPage() {
       Difficulty: 0,
       Tags: [''],
       createdAt: Date.now(),
-      sets: {}
     }
   )
   
-  // console.log('newGameState', newGame)
+  console.log('newGameState', newGame)
+  console.log('setsState', sets)
 
   React.useEffect(()=>{
     setNewGame({...newGame, sets: sets})
@@ -50,17 +52,7 @@ export default function GameCreationPage() {
     setNewGame({...newGame, [event.target.name]: event.target.value})
   }
 
-  async function createGame(event){
-    event.preventDefault()
-    // modify user inputted tags to array with no whitespace before or after strings
-    let tagsArray
-    newGame.Tags[0] ?
-        tagsArray = newGame.Tags.split(',').map((tag)=>{return tag.trim()}) : 
-        tagsArray = []
-    const newGameData = {...newGame, Tags: tagsArray}
-    const addedGame = await addDoc(gamesCollectionRef, newGameData)
-    console.log("id", `${addedGame.id} submitted succesfully`)
-    setSets({})
+  function clearState() {
     setNewGame({
       Title: '',
       Author: '',
@@ -69,6 +61,21 @@ export default function GameCreationPage() {
       createdAt: Date.now(),
       sets: {}
     })
+    setSets(defaultSets)
+  }
+
+  async function createGame(event){
+    event.preventDefault()
+    // modify user inputted tags to array with no whitespace before or after strings
+    let tagsArray
+    newGame.Tags[0] ?
+      tagsArray = newGame.Tags.split(',').map((tag)=>{return tag.trim()}) : 
+      tagsArray = []
+    const newGameData = {...newGame, Tags: tagsArray}
+    const addedGame = await addDoc(gamesCollectionRef, newGameData)
+    console.log("id", `${addedGame.id} submitted succesfully`)
+    clearState()
+    event.target.reset()
   }
 
   return (
