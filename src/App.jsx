@@ -3,7 +3,7 @@ import { HashRouter, Routes, Route } from "react-router-dom"
 
 const InitialPage = lazy(()=> import ('./pages/InitialPage'))
 const GameCreationPage = lazy(()=> import ('./pages/GameCreationPage'))
-const GamePage = lazy(()=> import ('./pages/GamePage'))
+const GamePage = lazy(()=> import ('./pages/PlayPage'))
 
 import Layout from './components/Layout'
 import LoadingSpinner from './components/LoadingSpinner'
@@ -16,7 +16,7 @@ export default function Start() {
           <Route path='/' element={<Layout />}>
             <Route index element={<InitialPage />}/>
             <Route path='/create' element={<GameCreationPage />}/>
-            <Route path='/:name/:id' element={<GamePage />}/>
+            <Route path='/play/:title/:id' element={<GamePage />}/>
           </Route>
         </Routes>
       </Suspense>

@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-import { getFirestore, collection, getDocs, getDoc, addDoc, query, orderBy, limit } from "firebase/firestore"
+import { getFirestore, collection, getDocs, getDoc, doc, addDoc, query, orderBy, limit } from "firebase/firestore"
 
 const firebaseConfig = {
   apiKey: "AIzaSyC9qkf6ZWNj_4ioAtzdVmiZ_eIWJsnufMY",
@@ -27,5 +27,14 @@ export async function getGames() {
   }))
   console.log('all games', games)
   return games
+}
+
+export async function getGame(id) {
+  const docRef = doc(db, "games", id)
+  const gameSnapshot = await getDoc(docRef)
+  return {
+      ...gameSnapshot.data(),
+      id: gameSnapshot.id    
+  }
 }
 

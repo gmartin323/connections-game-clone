@@ -1,7 +1,7 @@
 import React from "react"
 import SetInputCard from "../components/SetInputCard"
 
-import { addDoc } from "firebase/firestore/lite";
+import { addDoc } from "firebase/firestore";
 import { gamesCollectionRef } from "../../firebase";
 
 export default function GameCreationPage() {

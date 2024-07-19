@@ -7,8 +7,8 @@ export default function GameSelectionTile( { game } ) {
 
   return (
     <div className="game-selection-tile" >
-      <h3>{Title}</h3>
-      <p>{id}</p>
+      <img src="src\images\board-1.svg" alt="template of 4x4 game board" />
+      <h3 className="game-selection-tile-title">{Title}</h3>
     </div>
   )
 }

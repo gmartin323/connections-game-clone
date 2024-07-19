@@ -3,6 +3,7 @@ import { getDocs, query, orderBy, limit } from "firebase/firestore"
 import { gamesCollectionRef } from '../../../firebase'
 
 import GameSelectionTile from '../GameSelectionTile'
+import { Link } from 'react-router-dom'
 
 
 export default function RecentGamesSelection() {
@@ -10,7 +11,7 @@ export default function RecentGamesSelection() {
   const [recentGames, setRecentGames] = React.useState([])
 
   async function getRecentGames() {
-    const q = query(gamesCollectionRef, orderBy("createdAt", "desc"), limit(2))
+    const q = query(gamesCollectionRef, orderBy("createdAt", "desc"), limit(10))
     const snapshot = await getDocs(q)
     const recentGamesData = snapshot.docs.map((doc) => ({
       ...doc.data(),
@@ -29,13 +30,15 @@ export default function RecentGamesSelection() {
   const gamesSelectionTilesEl = (
     <div className="games-selection-container">
       {recentGames.map((game) => {
-        /* return (
-          <div className="game-selection-tile" key={game.id}>
-            <h3>{game.Title}</h3>
-            <p>{game.id}</p>
-          </div>
-        ) */
-        return <GameSelectionTile key={game.id} game={game} />
+        return (
+          <Link 
+            to={`/play/${game.Title}/${game.id}`}
+            key={game.id}
+            
+          >
+            <GameSelectionTile  game={game} />
+          </Link>
+        )
       })}
     </div>
   )
