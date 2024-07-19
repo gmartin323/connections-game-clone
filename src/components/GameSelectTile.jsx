@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function GameSelectionTile( { game } ) {
+export default function GameSelectTile( { game } ) {
 
 
   const {id, Title} = game

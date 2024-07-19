@@ -33,15 +33,22 @@ body {
 }
 
 .games-selection-container {
-  display: flex;
-  align-content: space-between;
-  gap: 1rem;
+  position: relative;
+  overflow: scroll;
 }
+
+.games-container {
+  display: flex;
+  flex-wrap: no-wrap;
+  gap: 1rem;
+  overflow: scroll;
+}
+
 
 .game-selection-tile {
   margin: 1rem 0;
   padding: 0.5rem 0.5rem 0.66rem 0.5rem ;
-  min-width: 100px;
+  min-width: 150px;
   border-radius: 8px;
   background-color: whitesmoke;
   display: flex;

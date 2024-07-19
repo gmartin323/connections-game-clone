@@ -2,8 +2,7 @@ import React from 'react'
 import { getDocs, query, orderBy, limit } from "firebase/firestore"
 import { gamesCollectionRef } from '../../../firebase'
 
-import GameSelectionTile from '../GameSelectionTile'
-import { Link } from 'react-router-dom'
+import GameSelectCarousel from './GameSelectCarousel'
 
 
 export default function RecentGamesSelection() {
@@ -27,28 +26,10 @@ export default function RecentGamesSelection() {
     getRecentGames()
   }, []) 
 
-  const gamesSelectionTilesEl = (
-    <div className="games-selection-container">
-      {recentGames.map((game) => {
-        return (
-          <Link 
-            to={`/play/${game.Title}/${game.id}`}
-            key={game.id}
-            
-          >
-            <GameSelectionTile  game={game} />
-          </Link>
-        )
-      })}
-    </div>
-  )
 
   return (
-    <div className='games-list-container'>
-      <p>10 most recent games</p>
-      <div className='games-list'>
-        {gamesSelectionTilesEl}
-      </div>
-    </div>
+    <>
+      <GameSelectCarousel gameArray={recentGames} />
+    </>
   )
 }
