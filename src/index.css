@@ -18,7 +18,6 @@ html {
 
 body {
   width: 100%;
-  height: 100vh;
 }
 
 .site-wrapper {
@@ -26,29 +25,31 @@ body {
 }
 
 .section-container {
-  padding: 2rem;
+  padding: 1rem;
   margin: 1rem 0;
   outline: 2px solid slateblue;
   border-radius: 6px;
 }
 
-.games-selection-container {
-  position: relative;
-  overflow: scroll;
+.section-container h2 {
+  padding-left: 8px;
 }
 
-.games-container {
-  display: flex;
-  flex-wrap: no-wrap;
-  gap: 1rem;
-  overflow: scroll;
+.games-selection-container {
+  display: grid;
+  gap: 12px;
+  grid-auto-flow: column;
+  /* grid-auto-columns: 21%; */
+
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
 }
 
 
 .game-selection-tile {
   margin: 1rem 0;
-  padding: 0.5rem 0.5rem 0.66rem 0.5rem ;
-  min-width: 150px;
+  padding: 0.5rem;
+  min-width: 116px;
   border-radius: 8px;
   background-color: whitesmoke;
   display: flex;
@@ -56,28 +57,36 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 
-a {
-  text-decoration: none;
+.game-selection-tile > img {
+  inline-size: 100%;
+  object-fit: cover;
+  /* max-width: 100%;
+  max-height: 100%; */
 }
-a:link { 
-  text-decoration: none; 
-} 
-a:visited { 
-  text-decoration: none; 
-} 
-a:hover { 
-  text-decoration: none; 
-} 
-a:active { 
-  text-decoration: none; 
-}
+
+/* .game-selection-tile-info {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  font-size: 0.75rem;
+  color: coral;
+} */
 
 .game-selection-tile-title {
-  font-size: 1rem;
-  text-decoration: none;
+  font-size: 0.75rem;
   color: coral;
+  text-wrap: nowrap;
+}
+
+.snaps-inline {
+  scroll-snap-type: inline mandatory;
+}
+
+.snaps-inline > * {
+  scroll-snap-align: start;
 }
 
 /* GAME CREATION PAGE */
@@ -91,7 +100,6 @@ a:active {
   gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   max-width: 1200px;
-
 }
 
 .set-input-card-container {
@@ -117,8 +125,6 @@ a:active {
 .set-input-sets-input {
   margin: 0.33rem auto;
 }
-
-
 
 .info-input-section {
   display: flex;
@@ -155,4 +161,22 @@ a:active {
   border-top: 8px solid #DA704B;
   border-radius: 50%;
   animation: spinner 1.5s linear infinite;
+}
+
+/* LINKS */
+
+a {
+  text-decoration: none;
+}
+a:link { 
+  text-decoration: none; 
+} 
+a:visited { 
+  text-decoration: none; 
+} 
+a:hover { 
+  text-decoration: none; 
+} 
+a:active { 
+  text-decoration: none; 
 }

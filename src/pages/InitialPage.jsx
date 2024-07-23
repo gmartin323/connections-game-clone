@@ -10,7 +10,7 @@ export default function InitialPage() {
         <h1>Connections</h1>
       </header>
       <section className="section-container">
-        <h2>Recent Games</h2>
+        <h2>Recently Created Games</h2>
         <RecentGamesSelection />
       </section>
       <section className="section-container">

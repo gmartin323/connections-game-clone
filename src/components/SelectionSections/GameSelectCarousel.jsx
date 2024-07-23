@@ -5,8 +5,8 @@ import GameSelectTile from "../GameSelectTile";
 export default function GameSelectCarousel( {gameArray} ) {
 
   return (
-    <section className="games-selection-container">
-      <div className="games-container" >
+    <section className="games-selection-section">
+      <div className="games-selection-container snaps-inline" >
           {gameArray.map((game) => {
             return (
               <Link 
