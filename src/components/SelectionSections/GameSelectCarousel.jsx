@@ -18,7 +18,13 @@ export default function GameSelectCarousel( {gameArray} ) {
             )
           })}
           {/* Link to all games page, with sort set to most recent */}
-          <Link className='game-selection-tile more-tile'><i class="fa-solid fa-arrow-right"></i></Link>
+          <Link 
+            to={'/games'}
+            className='game-selection-tile more-tile'
+          >
+            <i className="fa-solid fa-arrow-right"></i>
+            <p>See more games</p>
+          </Link>
       </div>
     </section>
   )

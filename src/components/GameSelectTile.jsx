@@ -7,28 +7,29 @@ export default function GameSelectTile( { game } ) {
   let starRatingEl
 
   function getStarRatingEl(num) {
-    const filledSkulllIcon = <i class="fa-solid fa-skull" style={{color: 'coral', padding: '1px'}}></i>
-    const emptySkullIcon = <i class="fa-solid fa-skull" style={{color: '#e3d8d3', padding: '1px'}}></i>
     let filledStarEl = []
     for (let i=0; i < num; i++ ) {
-      filledStarEl.push(filledSkulllIcon)
+      filledStarEl.push(<i className="fa-solid fa-skull" style={{color: 'coral', padding: '1px'}} key={i}></i>)
     }
     let emptyStarsEl = []
     for (let i=0; i < 5 - num; i++ ) {
-      filledStarEl.push(emptySkullIcon)
+      filledStarEl.push(<i className="fa-solid fa-skull" style={{color: '#e3d8d3', padding: '1px'}} key={5-i}></i>)
     }
 
     starRatingEl = <p className="rating">{filledStarEl}{emptyStarsEl}</p>
     return starRatingEl
   }
 
+  // Replace with avg rating after adding that functionality
   const randomStarRating = Math.random()* (5 - 1) + 1
-
-  console.log(randomStarRating)
 
   return (
     <div className="game-selection-tile" >
-      <img src="src\images\board-100x100.svg" alt="template of 4x4 game board" />
+      <picture>
+        <source srcSet="src\images\board-100x100.svg" media="(max-width: 768px)" />
+        <source srcSet="src\images\board-1.svg" />
+        <img src="src\images\board-1.svg" alt="Template of 4x4 game board" style={{width:"auto"}} />
+      </picture>
       <div className="game-selection-tile-info">
         {getStarRatingEl(Difficulty)}
         <p>

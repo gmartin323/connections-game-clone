@@ -12,7 +12,7 @@ export default function PlayPage() {
   console.log(currentGame)
 
 
-  // use promise object correctly to setCurrentGame stae
+  // use promise object correctly to setCurrentGame state
   async function getData(id) {
     const data = await getGame(id)
     return data

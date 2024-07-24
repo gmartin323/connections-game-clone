@@ -19,13 +19,12 @@ const db = getFirestore(app)
 export const gamesCollectionRef = collection(db, "games")
 
 // for use on home screen/play sceen
-export async function getGames() {
+export async function getAllGames() {
   const snapshot = await getDocs(gamesCollectionRef)
   const games = snapshot.docs.map(doc => ({
     ...doc.data(),
     id: doc.id
   }))
-  console.log('all games', games)
   return games
 }
 
