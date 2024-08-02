@@ -4,6 +4,11 @@
   src: url('/fonts/DinCondensed/D-DINCondensed.ttf')
 }
 
+@font-face {
+  font-family: "Plush Regular";
+  src: url('/public/fonts/PlushRegular/Plush-Regular.otf')
+}
+
 *,
 *::before,
 *::after {
@@ -14,6 +19,7 @@
 
 html {
   font-family: 'Din Condensed', sans-serif;
+  font-family: 'Plush Regular', sans-serif;
 }
 
 body {
