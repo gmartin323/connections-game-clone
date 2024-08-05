@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import { getAllGames } from '../../firebase'
 import GameSelectTile from '../components/GameSelectTile'
@@ -21,7 +22,12 @@ export default function GamesListPage() {
   const gamesListEl = (
     allGamesData.map((game)=>{
       return (
-        <GameSelectTile game={game} key={game.id}/>
+        <Link 
+          to={`/play/${game.Title}/${game.id}`}
+          key={game.id}
+        >
+          <GameSelectTile game={game} key={game.id}/>
+        </Link>
       )
     })
   )
