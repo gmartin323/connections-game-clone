@@ -35,7 +35,7 @@ export default function GamesListPage() {
   return(
     <div className='page-container'>
       <h2>Games List</h2>
-      <section className='section-container tiles-container-section'>
+      <section className='tiles-container-section'>
         {gamesListEl}
       </section>
     </div>

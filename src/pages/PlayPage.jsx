@@ -20,7 +20,7 @@ export default function PlayPage() {
 
   React.useEffect(()=> {
     setCurrentGame(getData(id))
-  }, [])
+  }, [id])
 
   return (
     <div className='page-container'>
