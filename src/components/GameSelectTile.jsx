@@ -25,11 +25,12 @@ export default function GameSelectTile( { game } ) {
 
   return (
     <div className="game-selection-tile" >
-      <picture>
-        <source srcSet="src\images\board-100x100.svg" media="(max-width: 768px)" />
-        <source srcSet="src\images\board-1.svg" />
-        <img src="src\images\board-1.svg" alt="Template of 4x4 game board" style={{width:"auto"}} />
-      </picture>
+      {/* <picture> */}
+        {/* <source srcSet="src\images\board-100x100.svg" media="(max-width: 768px)" /> */}
+        {/* <source srcSet="src\images\board-1.svg" /> */}
+        {/* <img src="src\images\board-100x100.png" alt="Template of 4x4 game board"  /> */}
+        <img src="src\images\board-1.svg" alt="Template of 4x4 game board" />
+      {/* </picture> */}
       <div className="game-selection-tile-info">
         {getStarRatingEl(Difficulty)}
         <p>

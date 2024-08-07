@@ -35,7 +35,7 @@ body {
   margin: 1rem 0;
   outline: 2px solid slateblue;
   border-radius: 6px;
-  max-width: 1440px;
+  /* max-width: 1440px; */
 }
 
 .section-container h2 {
@@ -45,13 +45,13 @@ body {
 .tiles-container-section {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
 }
 
 .games-selection-container {
-  
   display: grid;
   gap: 12px;
+  padding: 1rem;
   grid-template-columns: repeat(11, 1fr);
   /* grid-auto-flow: column; */
   /* grid-auto-flow: dense; */
@@ -62,16 +62,18 @@ body {
 
 
 .game-selection-tile {
-  margin: 1rem 0;
   padding: 0.5rem;
-  width: 141px;
+  min-width: 116px;
+  max-width: 220px;
+  aspect-ratio: 0.70;
   border-radius: 8px;
   background-color: whitesmoke;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: 2px;
+  container-type: inline-size;
+  /* gap: 2px; */
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
 }
 
@@ -82,12 +84,15 @@ body {
 }
 
 .more-tile p {
-  font-size: 0.8rem;
+  font-size: 14cqw;
   margin: 0.33rem 1rem;
   text-align: center;
 }
 
 .game-selection-tile > img {
+  /* min-width: 100px; */
+  width: auto;
+  aspect-ratio: 1;
   inline-size: 100%;
   object-fit: cover;
   /* max-width: 100%;
@@ -102,21 +107,25 @@ body {
   width: 100%;
   padding: 0 0.25rem;
   color: coral;
-  font-size: 0.6rem;
+  font-size: 10cqw;
 }
 
 .star-rating-num {
   position: relative;
   top: 1px;
-  font-size: 0.6rem;
   padding: 0 2px;
   line-height: 2;
+  font-size: 12cqw;
 }
 
 .game-selection-tile-title {
-  font-size: 0.8rem;
+  width: 90cqw;
+  font-size: 14cqw;
   color: coral;
   text-wrap: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: center;
 }
 
 .snaps-inline {
@@ -223,14 +232,14 @@ a:active {
 
 @media screen and (max-width: 768px) {
 
-  .game-selection-tile {
+  /* .game-selection-tile {
     width: 116px;
-  }
+  } */
 
 
-  .game-selection-tile-title {
+  /* .game-selection-tile-title {
     font-size: 1.1rem;
-  }
+  } */
 
   .star-rating-num {
     font-size: 0.8rem;
