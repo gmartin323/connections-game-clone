@@ -23,6 +23,12 @@ export default function GameSelectTile( { game } ) {
   // Replace with avg rating after adding that functionality
   const randomStarRating = Math.random()* (5 - 1) + 1
 
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  } 
+
+  const upperCaseTitle = Title.replace(/(^\w|\s\w)(\S*)/g, (_,m1,m2) => m1.toUpperCase()+m2.toLowerCase())
+
   return (
     <div className="game-selection-tile" >
       {/* <picture> */}
@@ -39,7 +45,7 @@ export default function GameSelectTile( { game } ) {
         </p>
         {/* <p>by {Author}</p> */}
       </div>
-      <h3 className="game-selection-tile-title">{Title}</h3>
+      <h3 className="game-selection-tile-title">{upperCaseTitle}</h3>
     </div>
   )
 }

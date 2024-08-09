@@ -6,7 +6,7 @@ import { gamesCollectionRef } from "../../firebase";
 
 export default function GameCreationPage() {
 
-  const defaultSets = {
+  /* const defaultSets = {
     set1Title: '',
     set1Answer1: '',
     set1Answer2: '',
@@ -27,9 +27,12 @@ export default function GameCreationPage() {
     set4Answer2: '',
     set4Answer3: '',
     set4Answer4: ''
-  }
+  } */
 
-  const [sets, setSets] = React.useState(defaultSets)
+  const [set1, setSet1] = React.useState({})
+  const [set2, setSet2] = React.useState({})
+  const [set3, setSet3] = React.useState({})
+  const [set4, setSet4] = React.useState({})
   
   const [newGame, setNewGame] = React.useState(
     {
@@ -38,16 +41,24 @@ export default function GameCreationPage() {
       Difficulty: 0,
       Tags: [''],
       createdAt: Date.now(),
+      // sets: {}
     }
   )
   
-  console.log('newGameState', newGame)
-  console.log('setsState', sets)
-
+  
   React.useEffect(()=>{
-    setNewGame({...newGame, sets: sets})
-  }, [sets])
+    setNewGame({...newGame, sets: {
+      set1: set1,
+      set2: set2,
+      set3: set3,
+      set4: set4,
+    }})
+    
+  }, [set1, set2, set3, set4])
 
+  console.log('newGameState', newGame.sets)
+  // console.log('set1', set1)
+  
   function handleChange(event){
     setNewGame({...newGame, [event.target.name]: event.target.value})
   }
@@ -61,7 +72,6 @@ export default function GameCreationPage() {
       createdAt: Date.now(),
       sets: {}
     })
-    setSets(defaultSets)
   }
 
   async function createGame(event){
@@ -82,10 +92,10 @@ export default function GameCreationPage() {
     <div className="input-section">
       <form method="POST" onSubmit={createGame}>
         <div className="sets-input-section">
-          <SetInputCard currentSet={'set1'} setSets={setSets}/>
-          <SetInputCard currentSet={'set2'} setSets={setSets}/>
-          <SetInputCard currentSet={'set3'} setSets={setSets}/>
-          <SetInputCard currentSet={'set4'} setSets={setSets}/>
+          <SetInputCard currentSetName={'set1'} setSet={setSet1}/>
+          <SetInputCard currentSetName={'set2'} setSet={setSet2}/>
+          <SetInputCard currentSetName={'set3'} setSet={setSet3}/>
+          <SetInputCard currentSetName={'set4'} setSet={setSet4}/>
         </div>
         <div className="info-input-section">
           {/* info: title, author, difficulty, tags */}

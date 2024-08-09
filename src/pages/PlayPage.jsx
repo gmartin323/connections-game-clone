@@ -3,24 +3,28 @@ import { useParams } from 'react-router-dom'
 import { getGame } from '../../firebase'
 import { doc } from 'firebase/firestore'
 
+// import formatSets from '../util/formatSets'
+
 export default function PlayPage() {
   const [currentGame, setCurrentGame] = React.useState(null)
   const { id, title } = useParams()
-
-  console.log(id)
-  console.log(title)
-  console.log(currentGame)
-
-
   // use promise object correctly to setCurrentGame state
   async function getData(id) {
     const data = await getGame(id)
-    return data
+    setCurrentGame(data)
   }
 
   React.useEffect(()=> {
-    setCurrentGame(getData(id))
-  }, [id])
+    getData(id)
+  }, [])
+
+  console.log(currentGame)
+
+  // const answerArray = [
+    
+  // ]
+
+  
 
   return (
     <div className='page-container'>
@@ -29,6 +33,7 @@ export default function PlayPage() {
       </section>
       <section>
         <h3>Game play section</h3>
+        {/* {currentGame && <p>{setsTilesEl}</p>} */}
       </section>
     </div>
 
