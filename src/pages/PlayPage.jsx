@@ -11,6 +11,10 @@ export default function PlayPage() {
   const [currentGame, setCurrentGame] = React.useState(null)
   const [answersArray, setAnswersArray] = React.useState()
 
+  const [selected, setSelected] = React.useState([])
+  const [correct, setCorrect] = React.useState([])
+  const [guesses, setGuesses] = React.useState([])
+
   const { id, title } = useParams()
   
   async function getData(id) {
@@ -34,9 +38,7 @@ export default function PlayPage() {
         <h1>Game Title</h1>
       </section>
       <section>
-        <h3>Game play section</h3>
-        
-        {answersArray && <GameTilesSection answersArray={answersArray} />}
+        {answersArray && <GameTilesSection answersArray={answersArray} correct setCorrect selected setSelected guesses setGuesses/>}
       </section>
     </div>
 
