@@ -4,17 +4,6 @@ export default function SetInputCard( {currentSetName, setSet} ) {
 
   const [setTitle, setSetTitle] = React.useState("")
 
-  function handleTitleChange(event) {
-    setSet((prevSet) => {
-      return ({
-        ...prevSet,
-        setTitle: event.target.value
-      })
-    })
-  }
-
-  // console.log(setTitle)
-
   const dummySetDataStructure = [
     {'set1': {
       'answer1': 'Set1Title', 
@@ -43,28 +32,24 @@ export default function SetInputCard( {currentSetName, setSet} ) {
   ]
 
   function handleSetChange(event){
-    /* setSet((prevSet) => {
-      return ({...prevSet, [event.target.dataset.input]: event.target.value})
-    }) */
-    // console.log(event.target.name, event.target.value)
-    // console.log(event.target.dataset.input)
     setSet((prevSet) => {
       return ({
         ...prevSet, 
         [event.target.name]: 
           {answer: event.target.value, set: currentSetName}
         })
-      // return ({...prevSets, [prevSets.set1.title]: event.target.value})
-      // return ({...prevSets, [prevSets.set1.title]: event.target.value})
     })
   }
 
-  // // const setTitle = `${currentSet}.title`
-  // const setTitle = `${currentSet}Title`
-  // const answer1 = `${currentSetName}Answer1`
-  // const answer2 = `${currentSetName}Answer2`
-  // const answer3 = `${currentSetName}Answer3`
-  // const answer4 = `${currentSetName}Answer4`
+  function handleTitleChange(event) {
+    setSet((prevSet) => {
+      return ({
+        ...prevSet,
+        setTitle: event.target.value
+      })
+    })
+  }
+
 
   return (
     <div className="set-input-card-container">
@@ -72,11 +57,11 @@ export default function SetInputCard( {currentSetName, setSet} ) {
         <h2>Title:</h2>
         <input
           type="text"
-          name={setTitle}
+          name="setTitle"
           placeholder="set title" 
           onChange={handleTitleChange}
           data-input="title"
-          value={currentSetName.setTitle}
+          // value={currentSetName.setTitle}
         />
       </div>
       <div className="set-input-sets">

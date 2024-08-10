@@ -3,12 +3,16 @@ import { useParams } from 'react-router-dom'
 import { getGame } from '../../firebase'
 import { doc } from 'firebase/firestore'
 
-// import formatSets from '../util/formatSets'
+import getAnswersArray from '../util/getAnswersArray'
+import GameTilesSection from '../components/WordGrid'
 
 export default function PlayPage() {
+
   const [currentGame, setCurrentGame] = React.useState(null)
+  const [answersArray, setAnswersArray] = React.useState()
+
   const { id, title } = useParams()
-  // use promise object correctly to setCurrentGame state
+  
   async function getData(id) {
     const data = await getGame(id)
     setCurrentGame(data)
@@ -18,13 +22,11 @@ export default function PlayPage() {
     getData(id)
   }, [])
 
-  console.log(currentGame)
-
-  // const answerArray = [
-    
-  // ]
-
-  
+  React.useEffect(() => {
+    if (currentGame) {
+    setAnswersArray(getAnswersArray(currentGame))
+  }
+  }, [currentGame])
 
   return (
     <div className='page-container'>
@@ -33,7 +35,8 @@ export default function PlayPage() {
       </section>
       <section>
         <h3>Game play section</h3>
-        {/* {currentGame && <p>{setsTilesEl}</p>} */}
+        
+        {answersArray && <GameTilesSection answersArray={answersArray} />}
       </section>
     </div>
 
