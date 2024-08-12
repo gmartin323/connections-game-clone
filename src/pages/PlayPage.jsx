@@ -4,7 +4,7 @@ import { getGame } from '../../firebase'
 import { doc } from 'firebase/firestore'
 
 import getAnswersArray from '../util/getAnswersArray'
-import GameTilesSection from '../components/WordGrid'
+import WordGrid from '../components/WordGrid'
 
 export default function PlayPage() {
 
@@ -14,6 +14,8 @@ export default function PlayPage() {
   const [selected, setSelected] = React.useState([])
   const [correct, setCorrect] = React.useState([])
   const [guesses, setGuesses] = React.useState([])
+
+  console.log(selected)
 
   const { id, title } = useParams()
   
@@ -38,7 +40,16 @@ export default function PlayPage() {
         <h1>Game Title</h1>
       </section>
       <section>
-        {answersArray && <GameTilesSection answersArray={answersArray} correct setCorrect selected setSelected guesses setGuesses/>}
+        {answersArray && 
+          <WordGrid 
+            answersArray={answersArray} 
+            correct 
+            setCorrect 
+            selected={selected}
+            setSelected={setSelected}
+            guesses 
+            setGuesses
+          />}
       </section>
     </div>
 
