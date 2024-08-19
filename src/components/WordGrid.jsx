@@ -10,8 +10,7 @@ export default function WordGrid( props ) {
   const shuffledArray = React.useMemo(() => {
     return shuffle(answersArray)
   }, [answersArray])
-  console.log('shufArr', shuffledArray)
-
+  
   return (
     <div className='word-grid word-grid-default'>
       {shuffledArray.map((answer)=> {

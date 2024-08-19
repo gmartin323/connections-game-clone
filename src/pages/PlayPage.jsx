@@ -5,6 +5,7 @@ import { doc } from 'firebase/firestore'
 
 import getAnswersArray from '../util/getAnswersArray'
 import WordGrid from '../components/WordGrid'
+import GuessButton from '../components/GuessButton'
 
 export default function PlayPage() {
 
@@ -38,6 +39,7 @@ export default function PlayPage() {
     <div className='page-container'>
       <section>
         <h1>Game Title</h1>
+        <p>Create four groups of four!</p>
       </section>
       <section>
         {answersArray && 
@@ -50,6 +52,11 @@ export default function PlayPage() {
             guesses 
             setGuesses
           />}
+      </section>
+      <section>
+        <GuessButton 
+          selected={selected}
+        />
       </section>
     </div>
 
