@@ -56,6 +56,13 @@ export default function PlayPage() {
       <section>
         <GuessButton 
           selected={selected}
+          setSelected={setSelected}
+          guesses={guesses}
+          setGuesses={setGuesses}
+          correct={correct}
+          setCorrect={setCorrect}
+          answersArray={answersArray}
+          setAnswersArray={setAnswersArray}
         />
       </section>
     </div>
