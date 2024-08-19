@@ -6,9 +6,20 @@ export default function WordButton( props ) {
 
   const { answer, set } = answerObj
 
+  const styles = selected.includes(answer) ?
+    {
+      backgroundColor: '#5a594e',
+      color: '#fff'
+    } :
+    {
+      backgroundColor: '#efefe6',
+      color: '#000'
+    }
+
   return (
     <button
       className='word-button'
+      style={styles}
       onClick={() => {
         let newSelected 
         if (selected.includes(answer)) {
