@@ -17,8 +17,6 @@ export default function PlayPage() {
   const [correct, setCorrect] = React.useState([])
   const [guesses, setGuesses] = React.useState([])
 
-  console.log(selected)
-
   const { id, title } = useParams()
   
   async function getData(id) {

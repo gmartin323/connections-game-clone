@@ -2,15 +2,21 @@ import React from 'react'
 
 export default function CorrectSet( {correctSet, currentGame} ) {
 
-  const set = {
-    answers: "1, 2, 3, 4"
-  }
 
+  const setTitle = currentGame.sets[correctSet].setTitle
+  const setAnswersObj = currentGame.sets[correctSet]
+
+  // surely this could be simpler???
+  const currentSetAnswerValues = Object.values(Object.fromEntries(Object.entries(setAnswersObj).filter(([key]) => key !== 'setTitle')))
+
+  const answersList = currentSetAnswerValues.map((answer) => {
+    return answer.answer
+  }).join(', ')
 
   return (
     <div>
-      <h3>{correctSet}</h3>
-      <p>{set.answers}</p>
+      <h3>{setTitle}</h3>
+      <p>{answersList}</p>
     </div>
   )
 }
