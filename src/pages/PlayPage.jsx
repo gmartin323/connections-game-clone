@@ -6,6 +6,7 @@ import { doc } from 'firebase/firestore'
 import getAnswersArray from '../util/getAnswersArray'
 import WordGrid from '../components/WordGrid'
 import GuessButton from '../components/GuessButton'
+import CorrectSetsSection from '../components/CorrectSetsSection'
 
 export default function PlayPage() {
 
@@ -42,6 +43,11 @@ export default function PlayPage() {
         <p>Create four groups of four!</p>
       </section>
       <section>
+        {correct && 
+          <CorrectSetsSection 
+            correct={correct} 
+            currentGame={currentGame} 
+          />}
         {answersArray && 
           <WordGrid 
             answersArray={answersArray} 
