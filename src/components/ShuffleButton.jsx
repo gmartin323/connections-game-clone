@@ -7,7 +7,7 @@ export default function ShuffleButton( {answersArray, setAnswersArray, buttonVis
     setAnswersArray(shuffle(answersArray))
   }
 
-  console.log(answersArray)
+  // console.log(answersArray)
 
   return (
     buttonVisible 

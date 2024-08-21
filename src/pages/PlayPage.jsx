@@ -45,7 +45,7 @@ export default function PlayPage() {
         <h1>{title}</h1>
         <p>Create four groups of four!</p>
       </section>
-      <section>
+      <section className='game-play-section'>
         {correct && 
           <CorrectSetsSection 
             correct={correct} 
@@ -60,8 +60,8 @@ export default function PlayPage() {
           />}
       </section>
       <section className='play-page-mistakes-section'>
-        <p>Mistakes remaining: {guesses}</p>
-        <span></span>
+        <p>Mistakes remaining: </p>
+        <span>{guesses}</span>
       </section>
       <section className='play-page-btn-section'>
         <ShuffleButton 
