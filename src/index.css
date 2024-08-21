@@ -27,7 +27,7 @@ body {
 }
 
 .site-wrapper {
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 .section-container {
@@ -138,29 +138,90 @@ body {
 
 /* PLAY PAGE */
 
+.play-page {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .word-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 8px;
-  /* width: calc(3 * 8px + 4 * 100px); */
-  margin: 2rem auto;
+  max-width: calc(3 * 8px + 4 * 100px);
+  margin: 1.75rem auto 0.75rem;
 }
 
 .word-grid-default {
   grid-template-rows: repeat(4, 1fr);
-  height: calc(3 * 8px + 4 * 100px);
+  /* height: calc(3 * 8px + 4 * 100px); */
+}
+
+.word-grid-3-rows {
+  grid-template-rows: repeat(3, 1fr);
+  /* height: calc(2 * 8px + 3 * 100px); */
+}
+
+.word-grid-2-rows {
+  grid-template-rows: repeat(2, 1fr);
+  /* height: calc(1 * 8px + 2 * 100px); */
+}
+
+.word-grid-1-row {
+  grid-template-rows: repeat(1, 1fr);
+  /* height: calc(1 * 100px); */
 }
 
 .word-button {
   display: flexbox;
   align-items: center;
   justify-content: center;
+  padding: 0 0.5rem;
   flex-wrap: wrap;
   overflow: hidden;
   cursor: pointer;
   border: none;
   border-radius: 6px;
+  font-family: 'Plush Regular', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
   text-transform: uppercase;
+  aspect-ratio: 1;
+}
+
+.play-page-mistakes-section {
+  padding-bottom: 0.75rem;
+}
+
+.play-page-btn-section {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 0;
+}
+
+.play-page-btn {
+  font-family: 'Plush Regular', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+  min-width: 5.5em;
+  height: 3em;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1rem;
+  max-width: 80vw;
+  border-radius: 32px;
+  line-height: 1.5em;
+  cursor: pointer;
+  border: 1px solid;
+  background-color: #fff;
+  color: #000;
+  border-color: #000;
 }
 
 /* GAME CREATION PAGE */
@@ -257,12 +318,17 @@ a:active {
 
 /* MEDIA-QUERIES */
 
+@media screen and (max-width: 475px) {
+  .word-button {
+    font-size: 0.75rem;
+  }
+}
+
 @media screen and (max-width: 768px) {
 
   /* .game-selection-tile {
     width: 116px;
   } */
-
 
   /* .game-selection-tile-title {
     font-size: 1.1rem;

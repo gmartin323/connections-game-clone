@@ -4,18 +4,23 @@ import { getGame } from '../../firebase'
 import { doc } from 'firebase/firestore'
 
 import getAnswersArray from '../util/getAnswersArray'
-import WordGrid from '../components/WordGrid'
-import GuessButton from '../components/GuessButton'
 import CorrectSetsSection from '../components/CorrectSetsSection'
+import WordGrid from '../components/WordGrid'
+import ShuffleButton from '../components/ShuffleButton'
+import DeselectAllButton from '../components/DeselectAllButton'
+import GuessButton from '../components/GuessButton'
 
 export default function PlayPage() {
+  
+  const GUESSES_ALLOWED = 4
 
   const [currentGame, setCurrentGame] = React.useState(null)
   const [answersArray, setAnswersArray] = React.useState()
-
+  
   const [selected, setSelected] = React.useState([])
   const [correct, setCorrect] = React.useState([])
-  const [guesses, setGuesses] = React.useState([])
+  const [guesses, setGuesses] = React.useState(GUESSES_ALLOWED)
+  const [buttonVisible, setButtonVisible] = React.useState(true)
 
   const { id, title } = useParams()
   
@@ -35,9 +40,9 @@ export default function PlayPage() {
   }, [currentGame])
 
   return (
-    <div className='page-container'>
+    <div className='page-container play-page'>
       <section>
-        <h1>Game Title</h1>
+        <h1>{title}</h1>
         <p>Create four groups of four!</p>
       </section>
       <section>
@@ -46,18 +51,28 @@ export default function PlayPage() {
             correct={correct} 
             currentGame={currentGame} 
           />}
-        {answersArray && 
+        {answersArray && correct.length !== 4 &&
           <WordGrid 
             answersArray={answersArray} 
-            correct 
-            setCorrect 
+            correct={correct}
             selected={selected}
             setSelected={setSelected}
-            guesses 
-            setGuesses
           />}
       </section>
-      <section>
+      <section className='play-page-mistakes-section'>
+        <p>Mistakes remaining: {guesses}</p>
+        <span></span>
+      </section>
+      <section className='play-page-btn-section'>
+        <ShuffleButton 
+          answersArray={answersArray}
+          setAnswersArray={setAnswersArray}
+          buttonVisible={buttonVisible}
+        />
+        <DeselectAllButton 
+          setSelected={setSelected}
+          buttonVisible={buttonVisible}
+        />
         <GuessButton 
           selected={selected}
           setSelected={setSelected}
@@ -67,6 +82,8 @@ export default function PlayPage() {
           setCorrect={setCorrect}
           answersArray={answersArray}
           setAnswersArray={setAnswersArray}
+          buttonVisible={buttonVisible}
+          setButtonVisible={setButtonVisible}
         />
       </section>
     </div>

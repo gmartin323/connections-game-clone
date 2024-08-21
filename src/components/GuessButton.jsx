@@ -5,8 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function GuessButton(props) {
 
-  const { answersArray, setAnswersArray, selected, setSelected, guesses, setGuesses, correct, setCorrect } = props
-  const [buttonVisible, setButtonVisible] = React.useState(true)
+  const { answersArray, setAnswersArray, selected, setSelected, guesses, setGuesses, correct, setCorrect, buttonVisible, setButtonVisible } = props
 
   function handleGuess() {
     const categories = selected.map(word => word.set)
@@ -49,6 +48,7 @@ export default function GuessButton(props) {
       {buttonVisible 
         && 
         <button
+          className='play-page-btn'
           onClick={handleGuess}
           disabled={selected.length !== 4}
           aria-disabled={selected.length !== 4 ? "false" : "true"}
