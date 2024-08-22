@@ -261,6 +261,13 @@ body {
   border-color: #000;
 }
 
+.play-page-btn[disabled=disabled], button:disabled {
+  pointer-events: none;
+  background-color: #fff;
+  color: #7f7f7f;
+  border-color: #7f7f7f;
+}
+
 /* GAME CREATION PAGE */
 
 .input-section {

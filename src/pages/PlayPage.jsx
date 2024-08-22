@@ -70,6 +70,7 @@ export default function PlayPage() {
           buttonVisible={buttonVisible}
         />
         <DeselectAllButton 
+          selected={selected}
           setSelected={setSelected}
           buttonVisible={buttonVisible}
         />

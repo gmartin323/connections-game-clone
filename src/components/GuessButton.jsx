@@ -51,8 +51,8 @@ export default function GuessButton(props) {
           className='play-page-btn'
           onClick={handleGuess}
           disabled={selected.length !== 4}
-          aria-disabled={selected.length !== 4 ? "false" : "true"}
-          >
+          aria-disabled={selected.length !== 4 ? "true" : "false"}
+        >
           Submit
         </button>
       }
