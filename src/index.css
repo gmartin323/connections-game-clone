@@ -223,7 +223,8 @@ body {
 }
 
 .play-page-mistakes-section {
-  padding: 0.75rem;
+  padding: 0.75rem 0;
+  margin: 0 0.5rem;
 }
 
 .play-page-mistakes-section p {
@@ -234,7 +235,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin: 0;
+  margin: 0 0.5rem;
 }
 
 .play-page-btn {
@@ -363,7 +364,8 @@ a:active {
 @media screen and (max-width: 475px) {
 
   .correct-set-container {
-    max-width: calc(100vw - 1rem);
+    /* max-width: calc(100vw - 1rem); */
+    /* min-width: 0; */
     overflow: hidden; 
     text-overflow: ellipsis;
     white-space: nowrap;

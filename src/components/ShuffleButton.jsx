@@ -1,10 +1,10 @@
 import React from 'react'
 import shuffle from '../util/shuffle'
 
-export default function ShuffleButton( {answersArray, setAnswersArray, buttonVisible} ) {
+export default function ShuffleButton( { answersArray, setAnswersArray, buttonVisible } ) {
 
   function handleShuffle() {
-    setAnswersArray(shuffle(answersArray))
+    setAnswersArray(shuffle([...answersArray]))
   }
 
   // console.log(answersArray)

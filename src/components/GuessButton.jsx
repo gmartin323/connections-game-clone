@@ -56,7 +56,6 @@ export default function GuessButton(props) {
           Submit
         </button>
       }
-      <ToastContainer />
     </>
   )
 }
