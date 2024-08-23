@@ -140,16 +140,21 @@ body {
 .play-page {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 4rem auto 0;
   text-align: center;
+}
+
+.play-page-header-section p {
+  padding-top: 2rem;
+  padding-bottom: 0.33rem;
 }
 
 .game-play-section {
   display: flex;
   flex-direction: column;
-  max-width: calc(3 * 8px + 4 * 100px);
-  margin: 0.33rem auto 0;
+  max-width: calc(3 * 8px + 4 * 160px);
   aspect-ratio: 1; 
+  margin: 0 auto;
 }
 
 .correct-sets-section {
@@ -157,6 +162,10 @@ body {
   flex-direction: column;
   flex-grow: 1;
   gap: 8px;
+  margin-bottom: 8px;
+  
+  /* margin-bottom: -8px; */
+  /* margin-bottom: 8px; */
 }
 
 .correct-set-container {
@@ -173,18 +182,28 @@ body {
   animation-fill-mode: forwards;
   overflow: hidden;
   width: 96vw;
-  max-width: calc(3 * 8px + 4 * 100px);
+  max-width: calc(3 * 8px + 4 * 160px);
   min-width: 0;
   color: #000;
   flex-grow: 1;
 }
+
+.correct-set-container:nth-child(4) {
+  margin-bottom: -8px;
+}
+
+/* 
+.correct-sets-section div {
+  margin-bottom: 8px;
+} */
+
 
 .word-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 8px;
   width: 96vw;
-  max-width: calc(3 * 8px + 4 * 100px);
+  max-width: calc(3 * 8px + 4 * 160px);
 }
 
 .word-grid-default {
@@ -222,7 +241,7 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   aspect-ratio: 1;
-  max-width: 100px;
+  max-width: 160px;
 }
 
 .play-page-mistakes-section {

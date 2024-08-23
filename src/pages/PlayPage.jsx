@@ -41,12 +41,12 @@ export default function PlayPage() {
 
   return (
     <div className='page-container play-page'>
-      <section>
+      <section className='play-page-header-section'>
         <h1>{title}</h1>
         <p>Create four groups of four!</p>
       </section>
       <section className='game-play-section'>
-        {correct && 
+        {correct.length > 0 && 
           <CorrectSetsSection 
             correct={correct} 
             currentGame={currentGame} 
