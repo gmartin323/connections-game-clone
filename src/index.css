@@ -242,7 +242,7 @@ body {
   text-transform: uppercase;
   aspect-ratio: 1;
   max-width: 160px;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 
 .word-button:active {
