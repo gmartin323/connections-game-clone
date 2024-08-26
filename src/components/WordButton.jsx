@@ -32,7 +32,8 @@ export default function WordButton( props ) {
     <button
       className='word-button'
       style={styles}
-      onClick={handleClick}
+      onMouseDown={handleClick}
+      disabled={selected.length === 4 && !selected.some(obj => obj['answer'] === answer)}
     >
       {answer}
     </button>

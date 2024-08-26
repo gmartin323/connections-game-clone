@@ -140,7 +140,7 @@ body {
 .play-page {
   display: flex;
   flex-direction: column;
-  margin: 4rem auto 0;
+  margin: 2rem auto 0;
   text-align: center;
 }
 
@@ -242,6 +242,16 @@ body {
   text-transform: uppercase;
   aspect-ratio: 1;
   max-width: 160px;
+  transition: all 0.3s ease-in-out;
+}
+
+.word-button:active {
+  transition: all 0.3s ease-in-out;
+  transform: scale(0.9);
+}
+
+.word-button:disabled {
+  cursor: unset;
 }
 
 .play-page-mistakes-section {
