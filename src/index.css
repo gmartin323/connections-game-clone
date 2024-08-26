@@ -242,11 +242,11 @@ body {
   text-transform: uppercase;
   aspect-ratio: 1;
   max-width: 160px;
-  transition: all 0.1s ease-in-out;
+  
 }
 
 .word-button:active {
-  transition: all 0.3s ease-in-out;
+  /* transition: transform 0.3s 0.1s ease-in-out; */
   transform: scale(0.9);
 }
 
@@ -343,8 +343,16 @@ body {
   gap: 0.5rem;
 }
 
+/* UTILITY */
 
-
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
 /* LOADING SPINNER */
 

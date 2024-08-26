@@ -9,14 +9,21 @@ export default function WordButton( props ) {
   const styles = selected.some(obj => obj['answer'] === answer) ?
     {
       backgroundColor: '#5a594e',
-      color: '#fff'
+      color: '#fff',
+      transitionDuration: '0.3s',
+      transitionTimingFunction: 'easeInOut',
+      transitionProperty: 'transform, color, background-color'
     } :
     {
       backgroundColor: '#efefe6',
-      color: '#000'
+      color: '#000',
+      transitionDuration: '0.3s',
+      transitionTimingFunction: 'easeInOut',
+      transitionProperty: 'transform, color, background-color'
     }
 
-  function handleClick() {
+  function handleMouseDown() {
+    console.log("touched")
     let newSelected 
       if (selected.some(obj => obj['answer'] === answer)) {
         newSelected = selected.filter(word => word.answer !== answer)
@@ -30,9 +37,9 @@ export default function WordButton( props ) {
 
   return (
     <button
-      className='word-button'
+      className='word-button unselectable'
       style={styles}
-      onMouseDown={handleClick}
+      onMouseDown={handleMouseDown}
       disabled={selected.length === 4 && !selected.some(obj => obj['answer'] === answer)}
     >
       {answer}
