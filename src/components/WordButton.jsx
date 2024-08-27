@@ -10,14 +10,14 @@ export default function WordButton( props ) {
     {
       backgroundColor: '#5a594e',
       color: '#fff',
-      transitionDuration: '0.3s',
+      transitionDuration: '0.5s',
       transitionTimingFunction: 'easeInOut',
       transitionProperty: 'transform, color, background-color'
     } :
     {
       backgroundColor: '#efefe6',
       color: '#000',
-      transitionDuration: '0.3s',
+      transitionDuration: '0.5s',
       transitionTimingFunction: 'easeInOut',
       transitionProperty: 'transform, color, background-color'
     }
