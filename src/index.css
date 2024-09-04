@@ -19,7 +19,7 @@
 
 html {
   font-family: 'Din Condensed', sans-serif;
-  font-family: 'Plush Regular', sans-serif;
+  /* font-family: 'Plush Regular', sans-serif; */
 }
 
 body {
@@ -236,18 +236,18 @@ body {
   cursor: pointer;
   border: none;
   border-radius: 6px;
-  font-family: 'Plush Regular', sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   aspect-ratio: 1;
   max-width: 160px;
-  
+  font-family: 'Din Condensed', sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .word-button:active {
   /* transition: transform 0.3s 0.1s ease-in-out; */
-  transform: scale(0.95);
+  transform: scale(0.92);
 }
 
 .word-button:disabled {
@@ -271,7 +271,8 @@ body {
 }
 
 .play-page-btn {
-  font-family: 'Plush Regular', sans-serif;
+  /* font-family: 'Plush Regular', sans-serif; */
+  font-family: 'Din Condensed', sans-serif;
   font-size: 16px;
   font-weight: 600;
   display: flex;
@@ -424,6 +425,19 @@ a:active {
 
 }
 
+@media screen and (min-width: 475px) {
+  .word-button {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .word-button {
+    font-size: 1.4rem;
+    padding: 1.4rem;
+  }
+}
+
 @media screen and (max-width: 768px) {
 
   /* .game-selection-tile {
@@ -433,10 +447,16 @@ a:active {
   /* .game-selection-tile-title {
     font-size: 1.1rem;
   } */
-
+  
   .star-rating-num {
     font-size: 0.8rem;
     top: 2px;
     line-height: 1.4;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .word-button {
+    
   }
 }
