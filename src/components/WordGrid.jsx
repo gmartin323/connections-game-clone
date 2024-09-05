@@ -5,7 +5,7 @@ import WordButton from './WordButton'
 
 export default function WordGrid( props ) {
 
-  const { answersArray, selected, setSelected, correct } = props
+  const { answersArray, selected, setSelected, correct, isShuffling } = props
 
   const shuffledArray = React.useMemo(() => {
     return shuffle(answersArray)
@@ -22,9 +22,11 @@ export default function WordGrid( props ) {
   } else {
     wordGridRowsStyle = 'word-grid-default'
   }
+
+  console.log(isShuffling)
   
   return (
-    <div className={`word-grid ${wordGridRowsStyle}`}>
+    <div className={`word-grid ${isShuffling ? 'fade': ''} ${wordGridRowsStyle}`}>
       {shuffledArray.map((answer)=> {
         return (
           <WordButton 

@@ -23,7 +23,6 @@ export default function WordButton( props ) {
     }
 
   function handleMouseDown() {
-    console.log("touched")
     let newSelected 
       if (selected.some(obj => obj['answer'] === answer)) {
         newSelected = selected.filter(word => word.answer !== answer)
@@ -37,10 +36,10 @@ export default function WordButton( props ) {
 
   return (
     <button
+      /* className={isShuffling ? 'fade word-button unselectable' : 'word-button unselectable'} */
       className='word-button unselectable'
       style={styles}
       onMouseDown={handleMouseDown}
-      onClick={()=> e.preventDefault()}
       disabled={selected.length === 4 && !selected.some(obj => obj['answer'] === answer)}
     >
       {answer}

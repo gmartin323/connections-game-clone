@@ -20,6 +20,7 @@ export default function PlayPage() {
   const [selected, setSelected] = React.useState([])
   const [correct, setCorrect] = React.useState([])
   const [guesses, setGuesses] = React.useState(GUESSES_ALLOWED)
+  const [isShuffling, setIsShuffling] = React.useState(false)
   const [buttonVisible, setButtonVisible] = React.useState(true)
 
   const { id, title } = useParams()
@@ -57,6 +58,7 @@ export default function PlayPage() {
             correct={correct}
             selected={selected}
             setSelected={setSelected}
+            isShuffling={isShuffling}
           />}
       </section>
       <section className='play-page-mistakes-section'>
@@ -67,6 +69,8 @@ export default function PlayPage() {
         <ShuffleButton 
           answersArray={answersArray}
           setAnswersArray={setAnswersArray}
+          isShuffling={isShuffling}
+          setIsShuffling={setIsShuffling}
           buttonVisible={buttonVisible}
         />
         <DeselectAllButton 

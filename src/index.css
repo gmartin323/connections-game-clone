@@ -355,6 +355,15 @@ body {
   user-select: none;
 }
 
+.fade > * {
+  color: transparent !important;
+  background-color: #efefe6 !important;
+  pointer-events: none;
+  transition: color 0.2s ease;
+
+}
+
+
 /* LOADING SPINNER */
 
 
@@ -454,9 +463,9 @@ a:active {
     line-height: 1.4;
   }
 }
-
+/* 
 @media screen and (min-width: 768px) {
   .word-button {
     
   }
-}
+} */
