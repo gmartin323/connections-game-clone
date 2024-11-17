@@ -136,7 +136,12 @@ export default function GameCreationPage() {
           />
         </div>
         <section className="confirm-section">
-          <button type="submit">Submit</button>
+          <button 
+            type="submit"
+            className="play-page-btn create-page-btn"
+          >
+            Submit
+          </button>
         </section>
       </form>
     </div>

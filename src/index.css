@@ -35,7 +35,6 @@ body {
   margin: 1rem 0;
   outline: 2px solid slateblue;
   border-radius: 6px;
-  /* max-width: 1440px; */
 }
 
 .section-container h2 {
@@ -43,9 +42,12 @@ body {
 }
 
 .tiles-container-section {
+  margin: 0 auto;
+  padding: 1rem;
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  /* max-width: 1440px; */
 }
 
 .games-selection-container {
@@ -305,22 +307,29 @@ body {
 
 .input-section {
   padding: 0.75rem;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sets-input-section {
   display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  max-width: 1200px;
+  grid-template-areas: 
+    "set1 set2"
+    "set3 set4"
+  ;
+  justify-content: start;
+  
+  gap: 2rem;
 }
 
 .set-input-card-container {
   max-width: 260px;
-  padding: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
   justify-self: center;
 }
 
@@ -339,10 +348,24 @@ body {
 }
 
 .info-input-section {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  display: grid;
+  grid-template-areas: 
+    "title author"
+    "difficulty tags"
+  ;
+  gap: 1rem;
+  padding: 2rem 0;
+  max-width: 600px;
 }
+
+.confirm-section {
+  display: flex;
+}
+
+.create-page-btn {
+  right: 1rem;
+}
+
 
 /* UTILITY */
 
